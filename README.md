@@ -1,116 +1,91 @@
-# ✨ Glamora – Beauty & Perfume Catalog
+# Velour – Beauty & Fragrance Catalog
 
-<p align="center">
-  <img src="screenshots/home.png" width="200"/>
-  <img src="screenshots/detail.png" width="200"/>
-  <img src="screenshots/cart.png" width="200"/>
-  <img src="screenshots/favorites.png" width="200"/>
-</p>
-
-## 📖 Proje Açıklaması
-
-**Glamora**, Flutter ile geliştirilmiş modern bir kozmetik ve parfüm katalog uygulamasıdır. 16 farklı premium marka ürününü kategori filtresi, arama, favori ve sepet özellikleriyle şık bir tasarımda sunar.
-
-Proje; widget mimarisi, sayfa geçişleri (Navigator), Route Arguments, JSON veri modelleme ve state yönetimi konularını kapsamlı biçimde uygulamaktadır.
+A Flutter-based mobile catalog app for cosmetics and fragrances. Built as part of a mobile development internship project, focusing on real-world UI patterns, navigation, and data modeling.
 
 ---
 
-## 🎯 Özellikler
+## Overview
 
-| Özellik | Açıklama |
-|---|---|
-| 🔍 **Arama & Filtreleme** | Ürün adı, marka veya etikete göre gerçek zamanlı arama |
-| 🏷️ **Kategori Filtresi** | Parfüm, Dudak, Göz, Cilt Bakım, Ten Rengi, Yanak |
-| ❤️ **Favoriler** | Kalp ikonuyla beğenilen ürünleri kaydet |
-| 🛒 **Sepet Sistemi** | Miktar güncelleme, sürükle-sil, toplam hesaplama |
-| 📦 **Ürün Detayı** | Puan, açıklama, etiketler, miktar seçici |
-| ✨ **Splash Screen** | Animasyonlu açılış ekranı |
-| 🌈 **Gradient Tasarım** | Pembe-mor modern renk paleti |
-| 🔖 **Badge Sistemi** | "Yeni" ve "Çok Satan" etiketleri |
+Velour is a product catalog app featuring 16 premium beauty products across six categories. Users can browse, search, filter by category, save favorites, and manage a shopping cart — all with smooth navigation and a clean gradient UI.
+
+The project was an opportunity to put several Flutter concepts into practice at once: custom widgets, named routes with arguments, JSON-based data modeling, and state management without any external packages.
 
 ---
 
-## 🏗️ Proje Yapısı
+## Features
 
+- **Product Grid** — 16 products displayed in a responsive 2-column grid with cover images, brand labels, star ratings, and New/Bestseller badges
+- **Search** — real-time filtering by product name, brand, or tag
+- **Category Filter** — horizontal chip bar to filter by Fragrance, Lips, Eyes, Skincare, Base, or Cheeks
+- **Product Detail** — full description, tags, star rating, review count, quantity selector, and add to cart
+- **Cart** — add/remove items, adjust quantities, swipe-to-delete with Dismissible, order total calculation, and a checkout confirmation dialog
+- **Wishlist** — save and manage favorite products, add directly to cart from the wishlist
+- **Splash Screen** — animated logo intro with scale and fade transitions
+- **Gradient UI** — pink-to-purple gradient theme applied consistently across all screens
+
+---
+
+## Project Structure
 ```
 lib/
-├── main.dart                  # Uygulama girişi & Named Routes
+├── main.dart                       # App entry point & named route definitions
 ├── theme/
-│   └── app_theme.dart         # Renkler, gradientler, ThemeData
+│   └── app_theme.dart              # Colors, gradients, ThemeData
 ├── models/
-│   ├── product.dart           # Ürün modeli (fromJson / toJson)
-│   └── cart_item.dart         # Sepet öğesi modeli
+│   ├── product.dart                # Product model with fromJson / toJson
+│   └── cart_item.dart              # Cart item model
 ├── data/
-│   └── product_data.dart      # JSON simülasyonu (16 ürün)
+│   └── product_data.dart           # Simulated JSON dataset (16 products)
 ├── screens/
-│   ├── splash_screen.dart     # Animasyonlu splash
-│   ├── home_screen.dart       # Ana ekran (grid, arama, filtre)
-│   ├── product_detail_screen.dart  # Ürün detayı (Route Args)
-│   ├── cart_screen.dart       # Sepet ekranı
-│   └── favorites_screen.dart  # Favoriler ekranı
+│   ├── splash_screen.dart          # Animated splash screen
+│   ├── home_screen.dart            # Main screen: grid, search, category filter
+│   ├── product_detail_screen.dart  # Product detail with Route Arguments
+│   ├── cart_screen.dart            # Cart management screen
+│   └── favorites_screen.dart       # Wishlist screen
 └── widgets/
-    ├── product_card.dart      # Ürün kartı widget'ı
-    ├── category_chip.dart     # Kategori filtre chip'i
-    └── gradient_app_bar.dart  # Gradient AppBar widget'ı
+    ├── product_card.dart           # Reusable product card widget
+    ├── category_chip.dart          # Category filter chip
+    └── gradient_app_bar.dart       # Custom gradient AppBar widget
 ```
 
 ---
 
-## 🔧 Kullanılan Flutter Sürümü
+## Technical Highlights
 
-```
-Flutter 3.x.x (stable)
-Dart 3.x.x
-```
-
-> Projeyi çalıştırmadan önce `flutter --version` komutunu çalıştırarak sürümünüzü kontrol edin.
+| Topic | Implementation |
+|---|---|
+| State Management | `setState` — local state, no external packages |
+| Navigation | `Navigator.push` + `MaterialPageRoute` + Named Routes |
+| Data Passing | Route Arguments via `ModalRoute.of(context).settings.arguments` |
+| Data Modeling | `fromJson` / `toJson` methods simulating an API response |
+| UI Components | `SliverAppBar`, `SliverGrid`, `Dismissible`, `CustomScrollView` |
+| Animations | `AnimationController` with `CurvedAnimation` on splash screen |
 
 ---
 
-## 🚀 Çalıştırma Adımları
+## Getting Started
 
-### 1. Repoyu klonlayın
+**Requirements:** Flutter 3.x, Dart 3.x
 ```bash
-git clone https://github.com/KULLANICI_ADINIZ/glamora.git
-cd glamora
-```
+# Clone the repo
+git clone https://github.com/Hattapoglu-Ebru/velour.git
+cd velour
 
-### 2. Bağımlılıkları yükleyin
-```bash
+# Install dependencies
 flutter pub get
-```
 
-### 3. Emülatörü başlatın veya cihazınızı bağlayın
-```bash
-flutter devices
-```
+# Run on Chrome (web)
+flutter run -d chrome
 
-### 4. Uygulamayı çalıştırın
-```bash
+# Or run on a connected device
 flutter run
 ```
 
-### 5. Release APK almak için (opsiyonel)
-```bash
-flutter build apk --release
-```
-
 ---
 
-## 📱 Ekranlar
+## Dependencies
 
-| Ekran | Açıklama |
-|---|---|
-| **Splash Screen** | Logo animasyonu, uygulamayı karşılar |
-| **Home Screen** | Ürün grid'i, arama çubuğu, kategori filtreleri |
-| **Product Detail** | Detaylı ürün bilgisi, miktar seçici, sepete ekle |
-| **Cart Screen** | Sepet yönetimi, miktar güncelleme, ödeme simülasyonu |
-| **Favorites Screen** | Favorilere eklenen ürünler listesi |
-
----
-
-## 📦 Kullanılan Paketler
-
+No third-party packages were used beyond the Flutter SDK defaults. Everything — layout, navigation, animations, state — is built with `material.dart`.
 ```yaml
 dependencies:
   flutter:
@@ -118,24 +93,16 @@ dependencies:
   cupertino_icons: ^1.0.2
 ```
 
-> Ekstra paket kullanılmamıştır. Tüm bileşenler Flutter'ın `material.dart` paketi ile geliştirilmiştir.
-
 ---
 
-## 🎨 Teknik Detaylar
+## Screens
 
-- **State Yönetimi:** `setState` ile lokal state
-- **Navigasyon:** `Navigator.push` + `MaterialPageRoute` + **Named Routes**
-- **Veri Aktarımı:** **Route Arguments** (`ModalRoute.of(context).settings.arguments`)
-- **Veri Modeli:** `fromJson` / `toJson` metodları ile JSON simülasyonu
-- **UI Bileşenleri:** `SliverAppBar`, `SliverGrid`, `ListView.builder`, `GridView`, `Dismissible`
-
----
-
-## 👩‍💻 Geliştirici
-
-Bu proje Flutter mobil uygulama geliştirme eğitimi kapsamında geliştirilmiştir.
+| Screen | Description |
+|---|---|
+| Splash | Animated logo with scale + fade transition |
+| Home | Product grid with search bar and category chips |
+| Detail | Full product info, quantity selector, add to cart |
+| Cart | Item management with swipe-to-delete and checkout |
+| Wishlist | Saved products with quick add-to-cart option |
 
 ---
-
-*Made with 💜 using Flutter*
