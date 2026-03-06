@@ -64,4 +64,3 @@ flutter run -d chrome
 
 No third-party packages. Everything built with `material.dart`.
 
-*Developed as part of a Flutter mobile development internship — TNC Group, 2025.*
